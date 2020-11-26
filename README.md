@@ -8,8 +8,8 @@ Your bot's token and prefix will be in config.json.
 
 1. Step 1: Download this code on your PC.
 2. Step 2: After downloading open your terminal and type `npm i` before running bot `node .` or `node index.js`.
-3: Step 3: Go to `config.json` and add your bot's token and prefix.
-4: Step 4: Type `node .` in terminal. Done! :D Enjoy and you can edit your code as you want.
+3. Step 3: Go to `config.json` and add your bot's token and prefix.
+4. Step 4: Type `node .` in terminal. Done! :D Enjoy and you can edit your code as you want.
 
 ## Example discord.js code setup
 
