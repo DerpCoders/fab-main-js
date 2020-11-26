@@ -28,3 +28,7 @@ client.on('message', message => {
 })
 
 client.login('your-token-goes-here');
+```
+## Checkout other repositories!
+
+[Discord Rich presence](https://github.com/mkgaming54/Discord-RPC)!
