@@ -1,5 +1,5 @@
 # A general Discord.js Bot
-A general Discord.js bot created by Hey Fab, I'mma kill you#0001.
+A general Discord.js bot with some moderation and fun commands. Hey Fab, I'mma kill you#0001 
 
 # Configuration
 Your bot's token and prefix will be in config.json.
