@@ -15,14 +15,14 @@ module.exports = {
                 var url1;
                 let origin;
                 let title;
-        var random = getRandomInt(0,6);
+        var random = getRandomInt(0,8);
         if(random == 0){
             url1 = 'https://i.pinimg.com/originals/e6/f9/7c/e6f97cb321e8b8a0fed85195d47d7832.gif';
         origin = 'Source: Pinterest';
         title = 'oof!';
         }else if(random == 1){
-            url1 = 'https://media1.tenor.com/images/9fc73d84755865fd0e8a67fe6fad9f0f/tenor.gif?itemid=17175625';
-        origin = 'Source: Tenor';
+            url1 = 'https://i.pinimg.com/originals/d7/c3/0e/d7c30e46a937aaade4d7bc20eb09339b.gif';
+        origin = 'Source: Pinterest';
         title = 'ouch!';
         }else if(random == 2){
             url1 = 'https://i.chzbgr.com/full/8579535360/hDD734FAF/thats-gonna-hurt.gif';
@@ -44,8 +44,11 @@ module.exports = {
             url1 = 'https://64.media.tumblr.com/2850598977b96577f44a95c0277971ca/tumblr_mu544kbOCR1s6eseao1_r1_400.gif';
         origin = 'Source: Tumblr';
         title = 'oof!';
+        }else if(random == 7){
+            url1 = 'https://i.pinimg.com/originals/92/f4/59/92f4595d3f6ac39b6c175eb3d454fec2.gif';
+        origin = 'Source: Pinterest';
+        title = 'ouch!';
         }
-
      if (commandCOOLDOWN.has(message.author.id)){
                 message.channel.send(`**🚫 Please wait 5 seconds before using that command again**`).then(sentmsg => 
                   sentmsg.delete({timeout : 5000}))
@@ -56,7 +59,10 @@ module.exports = {
             setTimeout(() => {
                 commandCOOLDOWN.delete(message.author.id); 
             }, 5000);
-     }else{
+    
+     }else if(punchUser.id === '759762948016177195') return message.channel.send('Hahaha, you can\'t do that with me.')
+     
+     else{
             const aEmbed = new Discord.MessageEmbed()
             .setColor('RANDOM')
             .setAuthor(`${message.author.username} punched ${punchUser.displayName} `+ title , message.author.displayAvatarURL({size: 2048, dynamic: true}))
@@ -67,7 +73,7 @@ module.exports = {
             setTimeout(() => {
                 commandCOOLDOWN.delete(message.author.id); 
             }, 5000);
-            }
+     }
         }
     }
 }

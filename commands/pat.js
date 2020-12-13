@@ -46,6 +46,7 @@ module.exports = {
         url1 = 'https://media1.tenor.com/images/c0bcaeaa785a6bdf1fae82ecac65d0cc/tenor.gif'
     origin = 'Source: Tenor'
     }
+
     if (commandCooldown.has(message.author.id)){
         message.channel.send(`**🚫 Please wait 5 seconds before using that command again**`).then(sentmsg => 
           sentmsg.delete({timeout : 5000}))
@@ -61,7 +62,8 @@ module.exports = {
     setTimeout(() => {
         commandCooldown.delete(message.author.id); 
     }, 5000);
-    }else{
+}else if(patUser.id === '759762948016177195') return message.channel.send('Hahaha, you can\'t ');
+    else{
     const aEmbed = new Discord.MessageEmbed()
     .setColor('RANDOM')
     .setAuthor(`${message.author.username} pats ${patUser.displayName} :D`, message.author.displayAvatarURL({size: 2048, dynamic: true}))

@@ -20,7 +20,7 @@ module.exports = {
             embed.setColor('RANDOM')
             embed.setImage(memeImage);
             embed.setTimestamp()
-            embed.setFooter(`👍 ${memeUpvotes} | 💬 ${memeNumComments} | memes by reddit`, 'https://cdn0.iconfinder.com/data/icons/most-usable-logos/120/Reddit-512.png');
+            embed.setFooter(`👍 ${memeUpvotes} | 💬 ${memeNumComments}`, 'https://cdn0.iconfinder.com/data/icons/most-usable-logos/120/Reddit-512.png');
             message.channel.send(embed)
         }).catch(console.error);
     }

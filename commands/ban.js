@@ -14,9 +14,10 @@ module.exports = {
   if(!toBan) return message.channel.send(`${args[0]} is not a member `);
   if(!reas) return message.channel.send('```Required argument <reason> is missing!\n                   ^^\n For example - `ban @Fab reason```\n Don\'t ban me :^)');
 
-  if(!toBan.bannable){
-    return message.channel.send('Respect the person you want to ban, that member is mod/admin. ❌You cant ban that member❌')
-  }
+  if(toBan.user.id === '759762948016177195') return message.channel.send('Hmmm, It seems like you don\'t like me :(');
+  if(!toBan.bannable) return message.channel.send('Respect the person you want to ban, that member is mod/admin. ❌You cant ban that member❌')
+  
+
   if(toBan.bannable){
     let tis = new Discord.MessageEmbed()
     .setTitle('**Ban Report**')
@@ -29,11 +30,8 @@ module.exports = {
 
     message.channel.send(`✅ **Successfully banned** ${usertut}`);
     message.channel.send(tis);
-    usertut.send(`You were banned from ${guildname} by ${message.author.username}\nReason - ${reas}`);
+    usertut.send(`You were banned from **${guildname}** by **${message.author.username}**\nReason - **${reas}**`);
     toBan.ban();
-
-    if(Error) console.log(Error) && message.channel.send('Can\'t send DM to that user!');
-
   }
 }
 }

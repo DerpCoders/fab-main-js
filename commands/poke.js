@@ -48,7 +48,8 @@ module.exports = {
             setTimeout(() => {
                 cmdCooldown.delete(message.author.id); 
             }, 5000);
-        }else{
+        }else if(pokeUser.id === '759762948016177195') return message.channel.send('Want to poke me? Huh')
+        else{
             const pokEmbed = new Discord.MessageEmbed()
             .setAuthor(`${message.author.username} poked ${pokeUser.displayName}!`, message.author.displayAvatarURL({size: 2048, dynamic: true}))
             .setColor('RANDOM')

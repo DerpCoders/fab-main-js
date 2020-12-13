@@ -23,6 +23,7 @@ if (message.channel.type === 'text'){
                     inline: true},
             {name: '💬 Channels', value: `🟢 Total: ${message.guild.channels.cache.size} \n🟢 Total Categories: ${message.guild.channels.cache.filter((c) => c.type === "category").size} \n💬 Total Text: ${message.guild.channels.cache.filter((c) => c.type === "text").size} \n🔊 Total Voice: ${message.guild.channels.cache.filter((c) => c.type === "voice").size}`, inline: true },
             {name: '🏳 Region', value: `${message.guild.region}`, inline: true },
+            {name: '💎 Premium perks', value: `No. of boosts: ${message.guild.premiumSubscriptionCount} and Boost level: ${message.guild.premiumTier}`, inline: true}
         )
       .setTimestamp()
         .setFooter(`${message.guild.name}`, message.guild.iconURL({dynamic: true}));

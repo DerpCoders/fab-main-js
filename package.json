@@ -1,28 +1,36 @@
 {
   "name": "discord-bot",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "XD",
+  "main": "index",
   "scripts": {
+    "boi": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "canvacord": "^5.0.7",
+    "canvacord": "^5.0.8",
+    "canvas": "^2.6.1",
+    "discord-anti-spam": "^2.4.1",
     "discord-leveling": "^1.1.0",
-    "discord-nsfw": "^1.2.1",
-    "discord-xp": "^1.0.6",
-    "discord.js": "^12.4.1",
-    "discord.js-commando": "^0.10.0",
-    "got": "^11.8.0",
-    "mongoose": "^5.10.12",
-    "mysql": "^2.18.1",
+    "discord-minigames": "git+https://github.com/idc-Fab/minigames.git",
+    "discord-nsfw": "^1.3.0",
+    "discord-xp": "^1.1.7",
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "g-i-s": "^2.1.6",
+    "got": "^11.8.1",
+    "mongoose": "^5.11.7",
     "nekos.life": "^2.0.7",
-    "node-valorant-api": "^0.3.5",
-    "quick.db": "^7.1.3",
-    "save": "^2.4.0",
-    "sequelize": "^6.3.5",
-    "youtube-search": "^1.1.4"
+    "node-sass": "^5.0.0",
+    "node-valorant-api": "^0.4.0",
+    "snekfetch": "^4.0.4",
+    "something-random-on-discord": "git+https://github.com/idc-Fab/randy-orton.git",
+    "yt-search": "^2.5.1",
+    "zoro-api": "^0.3.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }

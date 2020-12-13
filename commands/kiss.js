@@ -30,14 +30,11 @@ module.exports = {
         url1 = 'https://media3.giphy.com/media/eX96PWYeu5LGw/source.gif';
     origin = 'Source: Giphy';
     }
+    
             if(!kissUser || message.author.id == kissUser.id){
-            const kEmbed = new Discord.MessageEmbed()
-            .setColor('f16ccd')
-            .setAuthor(`${message.author.username} kisses!`, message.author.displayAvatarURL({dynamic: true}))
-            .setImage(URL=url1)
-            .setFooter(origin)
-            message.channel.send(kEmbed);
-            }else{
+            message.channel.send('❌ **Wrong arguments please mention someone.**');
+            }else if(kissUser.id === '759762948016177195') return message.channel.send('Uhhh, please stop')
+            else{
             const iEmbed = new Discord.MessageEmbed()
             .setColor('f16ccd')
             .setAuthor(`${message.author.username} kissed ${kissUser.displayName}!`, message.author.displayAvatarURL({dynamic: true}))

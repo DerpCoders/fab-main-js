@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const ban = require('./ban');
 
 module.exports = {
     name: 'softban',
@@ -6,7 +7,7 @@ module.exports = {
     execute(message, args){
         if(!message.member.hasPermission('MANAGE_ROLES')) return message.channel.send('❌**You don\'t have permissions!**');
 
-const banuser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+const banuser = message.guild.member(message.mentions.users.first());
 
 const banRole = message.guild.roles.cache.find(r => r.name === 'Banned')
 
@@ -16,30 +17,19 @@ if(!banuser) return message.channel.send("I can't find that member!");
 //All roles will be removed
 banuser.roles.set([])
   .then(member => console.log(`Member roles is now of ${member.roles.cache.size} size`))
-  .catch(console.error);
 
-
-if(!banRole) return guild.roles.create({
+if(!banRole) return message.guild.roles.create({
     data: {
         name: "Banned",
-        color: "BLUE",
-        permissions: []
+        color: "GREY",
+        permissions: ['READ_MESSAGE_HISTORY']
     }
 }).then(role => {
-    message.mentions.members.first().roles.add(role).catch(error => {message.channel.send("Couldn't add the role."); console.error(error)});
-}).catch(error => {message.channel.send("An error occured, logs were sent to the developer."); console.error(error)});
+    message.mentions.members.first().roles.add(role)
+})
 
 banuser.roles.add(banRole);
-message.channel.send('Banning........').then(sentmsg => {
-    sentmsg.delete({timeout: 3000});
-});
-message.channel.startTyping();
-setTimeout(() => {
-    message.channel.stopTyping();
-    message.channel.send('**✅ Member banned softly! LOL**');
-}, 3000);
-if(error) throw error;{
-    message.channel.send('Something went wrong.. or I don\'t have permissions!')
-}
+message.channel.send('**✅ Member banned softly! LOL**');
+
 }
 }

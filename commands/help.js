@@ -13,8 +13,8 @@ if(!message.content.startsWith('`')) return;
         message.react('🇪');
         const exampleEmbed = new Discord.MessageEmbed()
         .setColor('RANDOM')
-        .setTitle('**Commands**')
-        .setDescription('\n\n**⛔ MODERATION-**\n`ban`, `kick`, `poll`, `clear`, `invite`, `serverinfo`, `userinfo`\n\n**🏃‍♀️ FUN-**\n`I want vid`, `uptime`, `news`, `meme`, `I want vid MK`, `kiss`, `punch`, `pat`, `poke`, `avatar`\n\n**😏 NSFW-**\n`pussy`,\n\n**❌ Ignore these-**\n`help pursuit`, `help ds`, `hi`, `ping`, `YT trends`\n\n[Invite](https://discord.com/api/oauth2/authorize?client_id=759762948016177195&permissions=0&scope=bot)\n\n**Commands are still being added**')
+        .setTitle('**Commands - **')
+        .setDescription('\n\n**⛔ MODERATION-**\n`ban`, `softban`, `kick`, `poll`, `clear`, `serverinfo`, `userinfo`\n\n**🏃‍♀️ FUN-**\n`I want vid`, `gis`, `news`, `meme`, `blur`, `gay`, `jail`, `trigger`, `I want vid MK`, `kiss`, `punch`, `pat`, `slap`, `spank`, `poke`, `avatar`\n\n**🛠 Utility-**\n`ping`, `stats`, `uptime`, `invite`\n\n**NOTE: If you want to disable any commands or messages for your server (because we don\'t have a database yet) - [Join our support](https://discord.gg/J73GfuFxNq) or DM to Radioactive#9921**\n\n[Invite Me!](https://discord.com/api/oauth2/authorize?client_id=759762948016177195&permissions=8&scope=bot)\n\n**Commands are still being added**')
         .setTimestamp()
         .setFooter('This is a bot LOL')
         .setThumbnail('https://cdn.discordapp.com/attachments/624080970731094016/760842758423707678/oie_6twFRGwWX7oC.jpg')

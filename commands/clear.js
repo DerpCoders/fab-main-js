@@ -12,6 +12,9 @@ module.exports = {
         sentmsg.delete({timeout: 5000});
       });
     var numbers = message.content.substr(message.content.indexOf(' ') + 1);
+    if(numbers > 99) return message.channel.send('Due to **limitations** I can delete only **99** messages at once.').then(msg => {
+      msg.delete({timeout: 8000});
+    });
     message.channel.messages.fetch({ limit: numbers }).then((messages) => {
       message.channel.bulkDelete(messages).then(() => {
         message.channel.send(`**✅ ${numbers} message(s) deleted**`).then(msg => msg.delete({ timeout: 5000 }));
