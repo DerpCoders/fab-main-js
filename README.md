@@ -29,6 +29,10 @@ client.on('message', message => {
 
 client.login('your-token-goes-here');
 ```
+
+## Join our server || Invite Fab in your server!
+(Join our support server)[https://discord.gg/J73GfuFxNq]
+(Invite Fab)[https://discord.com/api/oauth2/authorize?client_id=759762948016177195&permissions=8&scope=bot]
 ## Checkout other repositories!
 
 [Discord Rich presence](https://github.com/mkgaming54/Discord-RPC)!
