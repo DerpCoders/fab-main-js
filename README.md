@@ -3,7 +3,7 @@ A general Discord.js bot with some moderation and fun commands. Hey Fab, I'mma k
 
 <div align="center">
 
-<img src="https://cdn.discordapp.com/avatars/759762948016177195/5fcf1927b299f734d319e66cfab04c59.webp" width="150px" draggable="false"><br>
+<img src="https://cdn.discordapp.com/avatars/759762948016177195/5fcf1927b299f734d319e66cfab04c59.webp" width="2048px" draggable="false"><br>
 
 
 # Configuration
