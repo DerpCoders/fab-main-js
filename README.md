@@ -1,11 +1,6 @@
 ## A general Discord.js Bot
 A general Discord.js bot with some moderation and fun commands. Hey Fab, I'mma kill you#0640 
 
-<div align="center">
-
-<img src="https://cdn.discordapp.com/avatars/759762948016177195/5fcf1927b299f734d319e66cfab04c59.webp" width="1024px" draggable="false"><br>
-
-
 # Configuration
 Your bot's token and prefix will be in config.json.
 
