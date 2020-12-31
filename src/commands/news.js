@@ -25,7 +25,7 @@ module.exports = {
                     message.channel.send(embed)
     })
 } catch(err){
-        return message.channel.send(`❌ **There was an error while running this command** \`\`\`${err}\`\`\` \n Please contact Radioactive#6270`) && console.log(err);
+        return message.channel.send(`❌ **There was an error while running this command** \`\`\`${err}\`\`\` \n Please contact Fab was taken#0001`) && console.log(err);
 }
     }
 }

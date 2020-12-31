@@ -16,7 +16,7 @@ module.exports = {
           }
        }
           } catch (eror){
-            return message.channel.send(`❌ **There was an error while running this command** \`\`\`${eror}\`\`\` \n Please contact Radioactive#6270`);
+            return message.channel.send(`❌ **There was an error while running this command** \`\`\`${eror}\`\`\` \n Please contact Fab was taken#0001`);
         }
     }
 }

@@ -4,10 +4,11 @@ module.exports = {
     name: 'poll',
     description: 'poll',
     execute(message, args){
-        if (message.channel.type === 'text') {
+   try{
             if (!message.member.hasPermission("MANAGE_GUILD"))
                 return message.channel.send('❌**You don\'t have permission to create polls.**');
             const q = args.slice(0).join(" ");
+
             if(!q) return message.channel.send('❌ **Error** ```Required argument <poll title> is missing!\n                   ^^```')
             message.delete({ timeout: 2000 });
             const pollEmbed = new Discord.MessageEmbed()
@@ -20,13 +21,9 @@ module.exports = {
                         sentEmbed.react("764504833448345640");
                         sentEmbed.react("749166580503412787");
                         sentEmbed.react("⚪");  
-                        
             })
-            .catch(Error => {
-                message.say('Error' + Error);
-                return console.error(Error);
-              });
+        } catch (err) {
+            return message.channel.send(`❌ **There was an error while running this command** \`\`\`${err}\`\`\` \n Please contact Fab was taken#0001`) && console.log(err);
         }
-
-    }
-}
+        }
+        }

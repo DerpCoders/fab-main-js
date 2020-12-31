@@ -14,7 +14,7 @@ module.exports = {
             var url1;
             var title;
             let origin;
-            var random = getRandomInt(0, 3);
+            var random = getRandomInt(0, 5);
             if (random == 0) {
                 url1 = 'https://media1.tenor.com/images/af36628688f5f50f297c5e4bce61a35c/tenor.gif?itemid=17314633';
                 origin = 'Source: Tenor ';
@@ -28,9 +28,17 @@ module.exports = {
                 origin = 'Source: Imgur';
                 title = 'LOL';
             } else if (random == 3) {
-                url1 = 'https://steamuserimages-a.akamaihd.net/ugc/850473950842117246/8C83635F86CE09C683D511622D7ED2B85BAD3ADD/';
+                url1 = 'https://thumbs.gfycat.com/TerribleLightBagworm-small.gif';
                 origin = 'Source: Steam Community';
                 title = 'LOL';
+            } else if(random == 4){
+                url1 = 'https://media1.tenor.com/images/b6d8a83eb652a30b95e87cf96a21e007/tenor.gif?itemid=10426943';
+                origin = 'Source: Tenor';
+                title = 'oof';
+            } else if(random == 5){
+                url1 = 'https://cdn.discordapp.com/attachments/729340392864219179/790966513157799977/TerribleLightBagworm-small.gif';
+                origin = 'Source: Tenor';
+                title = 'Lmao';
             }
             if (cooldown.has(message.author.id)) {
                 message.channel.send(`**🚫 Please wait 5 seconds before using that command again**`).then(sentmsg =>

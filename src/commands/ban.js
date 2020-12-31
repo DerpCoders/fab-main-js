@@ -4,7 +4,7 @@ module.exports = {
     name: 'ban',
     description: 'ban',
     execute(message, args){
-   if (message.channel.type === 'text'){
+  try{
   if (!message.member.hasPermission('BAN_MEMBERS')) return message.channel.send("❌**You dont have permissions to ban members! LUL**");
   let toBan =message.mentions.members.first();
   let reas = args.slice(1).join(" ");
@@ -15,24 +15,27 @@ module.exports = {
   if(!reas) return message.channel.send('```Required argument <reason> is missing!\n                   ^^\n For example - `ban @Fab reason```\n Don\'t ban me :^)');
 
   if(toBan.user.id === '759762948016177195') return message.channel.send('Hmmm, It seems like you don\'t like me :(');
-  if(!toBan.bannable) return message.channel.send('Respect the person you want to ban, that member is mod/admin. ❌You cant ban that member❌')
+  if(!toBan.bannable) return message.channel.send('❌ I can\'t ban ;(, that member is **Moderator/Admin** (Higher than me in role hierarchy)')
   
 
   if(toBan.bannable){
     let tis = new Discord.MessageEmbed()
-    .setTitle('**Ban Report**')
-    .addField('Member banned', toBan)
-    .addField('Banned by', message.author)
-    .addField('Reason', reas)
+    .setTitle(`✅ **Successfully banned** ${usertut}`)
+    .addField('Member banned-', toBan)
+    .addField('Banned by-', message.author)
+    .addField('Reason-', reas)
     .setThumbnail('https://media1.tenor.com/images/ae83976e867ebc2722054a632ff045ad/tenor.gif')
-    .addField('Date', message.createdAt)
+    .addField('Date-', message.createdAt)
     .setColor('#ff0307');
 
-    message.channel.send(`✅ **Successfully banned** ${usertut}`);
     message.channel.send(tis);
-    usertut.send(`You were banned from **${guildname}** by **${message.author.username}**\nReason - **${reas}**`);
+   
+    usertut.send(`You were banned from **${guildname}** by **${message.author.username}**\nReason - **${reas}**`).catch(() =>  message.channel.send(`DM to ${toBan.user.username} wasn't sent! Because they have DMs turned off!`));
+    
     toBan.ban();
   }
+} catch (eror){
+  return message.channel.send(`❌ **Maybe I don't have enough permissions to do that!** \`\`\`${eror}\`\`\` \n Please contact Fab was taken#0001`);
 }
 }
 }

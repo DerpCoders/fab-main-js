@@ -14,7 +14,7 @@ module.exports = {
         let origin;
         let title;
         let footer;
-        var random = getRandomInt(0, 2);
+        var random = getRandomInt(0, 3);
         if(random == 0){
             url1 = 'https://media1.giphy.com/media/xCzLjOXGjHJoA/giphy.gif?cid=ecf05e47c68287a88684bd70560ce2bb26d35d8024970ab4&rid=giphy.gif';
         origin = 'Source: Giphy';
@@ -30,6 +30,9 @@ module.exports = {
         origin = 'Source: Gifer';
         title = 'LMAO';
         footer = null;
+        }else if(random == 3){
+            url1 = 'https://i.kym-cdn.com/photos/images/newsfeed/001/856/131/1af.gif';
+        origin = 'Source: Know your meme'
         }
      if (cmdCD.has(message.author.id)){
                 message.channel.send(`**🚫 Please wait 5 seconds before using that command again**`).then(sentmsg => 

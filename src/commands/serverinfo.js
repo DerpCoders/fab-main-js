@@ -16,6 +16,7 @@ if (message.channel.type === 'text'){
             {name: '🎃 Owner', value: `${message.guild.owner.user.tag}`, inline: true },
             {name: '📅 Creation Date', value: `${message.guild.createdAt.toLocaleString()}`, inline: true },
             {name: '🆔 Server ID', value: `${message.guild.id}`, inline: true },
+            {name: '💎 Premium (Boost)', value: `No. of boosts: ${message.guild.premiumSubscriptionCount}\nBoost level: ${message.guild.premiumTier}`, inline: true},
             {name: '✅ Total Roles', value: `${message.guild.roles.cache.size}`, inline: true },
             {name: '🎉 Total Emojis', value: `${message.guild.emojis.cache.size}`, inline: true },
             {name: `🤖 Members`,
@@ -23,7 +24,7 @@ if (message.channel.type === 'text'){
                     inline: true},
             {name: '💬 Channels', value: `🟢 Total: ${message.guild.channels.cache.size} \n🟢 Total Categories: ${message.guild.channels.cache.filter((c) => c.type === "category").size} \n💬 Total Text: ${message.guild.channels.cache.filter((c) => c.type === "text").size} \n🔊 Total Voice: ${message.guild.channels.cache.filter((c) => c.type === "voice").size}`, inline: true },
             {name: '🏳 Region', value: `${message.guild.region}`, inline: true },
-            {name: '💎 Premium perks', value: `No. of boosts: ${message.guild.premiumSubscriptionCount} and Boost level: ${message.guild.premiumTier}`, inline: true}
+           
         )
       .setTimestamp()
         .setFooter(`${message.guild.name}`, message.guild.iconURL({dynamic: true}));
@@ -32,7 +33,7 @@ if (message.channel.type === 'text'){
         setTimeout(() => {
             message.channel.stopTyping();
             message.channel.send(mbed);
-        }, 2000); 
+        }, 1000); 
     }
 }
 }

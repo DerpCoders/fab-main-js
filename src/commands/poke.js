@@ -15,7 +15,7 @@ module.exports = {
 
             var url;
             let origin;
-        var random = getRandomInt(0,6);
+        var random = getRandomInt(0,7);
         if(random == 0){
             url = 'https://media1.tenor.com/images/3b9cffb5b30236f678fdccf442006a43/tenor.gif';
             origin = 'Source: Tenor';
@@ -37,7 +37,10 @@ module.exports = {
         }else if(random == 6){
             url = 'https://i.makeagif.com/media/1-27-2018/AwAZEo.gif';
             origin = 'Source: Make a gif';
-        } 
+        }else if(random == 7){
+            url = 'https://media1.tenor.com/images/8fe23ec8e2c5e44964e5c11983ff6f41/tenor.gif?itemid=5600215';
+            origin = 'Source: Tenor';
+        }
         if (cmdCooldown.has(message.author.id)){
             message.channel.send(`**🚫 Please wait 5 seconds before using that command again**`).then(sentmsg => 
               sentmsg.delete({timeout : 5000}))

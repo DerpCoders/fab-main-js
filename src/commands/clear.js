@@ -4,7 +4,6 @@ module.exports = {
     name: 'clear',
     description: "clear",
     execute(message, args){
-
     if (message.channel.type === 'text') {
       if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('❌ **You dont have permission to delete messages......LOL**').then(sentmsg => sentmsg.delete({ timeout: 5000 }));
       message.delete();
@@ -12,16 +11,12 @@ module.exports = {
         sentmsg.delete({timeout: 5000});
       });
     var numbers = message.content.substr(message.content.indexOf(' ') + 1);
-    if(numbers > 99) return message.channel.send('Due to **limitations** I can delete only **99** messages at once.').then(msg => {
-      msg.delete({timeout: 8000});
-    });
+    if(numbers > 99) return message.channel.send('Due to **limitations** I can delete only **99** messages at once.')
     message.channel.messages.fetch({ limit: numbers }).then((messages) => {
       message.channel.bulkDelete(messages).then(() => {
         message.channel.send(`**✅ ${numbers} message(s) deleted**`).then(msg => msg.delete({ timeout: 5000 }));
       });
-    }).catch(error => {
-      message.channel.send(error);
     });
+  } 
   }
-    }
   }

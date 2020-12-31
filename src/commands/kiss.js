@@ -13,7 +13,7 @@ module.exports = {
             }
             var url1;
             let origin;
-    var random = getRandomInt(0,4);
+    var random = getRandomInt(0,5);
     if(random == 0){
         url1 = 'https://i.chzbgr.com/full/8474882048/h22A2BFCE/get-a-room.gif';
     origin = 'Source: Unknown';
@@ -29,6 +29,9 @@ module.exports = {
     }else if(random == 4){
         url1 = 'https://media3.giphy.com/media/eX96PWYeu5LGw/source.gif';
     origin = 'Source: Giphy';
+    }else if(random == 5){
+        url1 = 'https://cdn.discordapp.com/attachments/729340392864219179/790966928683565126/tenor_6.gif';
+    origin = 'Source: Tenor';
     }
     
             if(!kissUser || message.author.id == kissUser.id){

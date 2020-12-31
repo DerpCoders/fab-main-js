@@ -1,0 +1,22 @@
+{
+    "userId":{
+        "guildId0001": {
+            "userXP": "8904024",
+            "userLevel": "24"
+        },
+        "guildId0002": {
+            "userXP": "79040345",
+            "userLevel": "100"
+        }
+    },
+    "userId002":{
+        "guildId0003": {
+            "userXP": "84957244",
+            "userLevel": "24"
+        },
+        "guildId0004": {
+            "userXP": "141414542",
+            "userLevel": "100"
+        }
+    }
+}

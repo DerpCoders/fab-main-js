@@ -14,7 +14,7 @@ module.exports = {
             }
             var url1;
             let origin;
-    var random = getRandomInt(0,9);
+    var random = getRandomInt(0,11);
     if(random == 0){
         url1 = 'https://i.ytimg.com/vi/AfizgkRbWQk/maxresdefault.jpg'
     origin = 'Source: YouTube'
@@ -44,6 +44,12 @@ module.exports = {
     origin = 'Source: Reddit'
     }else if(random == 9){
         url1 = 'https://media1.tenor.com/images/c0bcaeaa785a6bdf1fae82ecac65d0cc/tenor.gif'
+    origin = 'Source: Tenor'
+    }else if(random == 10){
+        url1 = 'https://cdn.discordapp.com/attachments/729340392864219179/790967382079963156/tenor_9.gif';
+    origin = 'Source: Tenor'
+    }else if(random == 11){
+        url1 = 'https://cdn.discordapp.com/attachments/729340392864219179/790967688008171540/tenor_10.gif';
     origin = 'Source: Tenor'
     }
 

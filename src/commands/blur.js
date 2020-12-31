@@ -21,7 +21,7 @@ module.exports = {
             .setImage('attachment://blur.png')
             .setTimestamp()
             message.channel.send(embed) && msg.delete();
-            if(user.user.id === '759762948016177195'){
+            if(user.id === '759762948016177195'){
                 message.channel.send('Uhh oh, I can\'t see anything....');
             }
         }
