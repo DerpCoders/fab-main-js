@@ -1,2 +1,7 @@
 node_modules/
+index.jsx
+/src/.DS_Store
+/src/commands/.DS_Store
 Procfile
+.DS_Store
+/database/null
