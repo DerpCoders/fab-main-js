@@ -95,7 +95,7 @@ client.on("ready", () => {
   fs.readdirSync('./config/').map(fu => console.log(`Loaded ${fu.toString()} config file`));
   fs.readdirSync('./').map(fu => console.log(`Loaded ${fu.toString()} in parent directory`));
 
-    console.log(`${client.user.tag} is now online .... yay! In ${client.guilds.cache.size} servers !\n${client.users.cache.size} users loaded\n${client.channels.cache.size} channels loaded!`);
+  console.log(`${client.user.tag} is now online .... yay! In ${client.guilds.cache.size} servers !\n${client.users.cache.size} users loaded\n${client.channels.cache.size} channels loaded!`);
 
   client.user.setPresence({
     activity: {
@@ -552,7 +552,7 @@ client.on("message", async (message) => {
   if (message.content.toLowerCase() === prefix + 'help setprefix') {
     message.channel.send('`setprefix` command is used for changing my prefix in a particular server,\nExample usage- `setprefix !` will set my prefix to `!` for your guild.');
   }
-  if(message.content.toLowerCase() === prefix + 'help settings'){
+  if (message.content.toLowerCase() === prefix + 'help settings') {
     message.channel.send('`settings` command will send an embed with details/settings of your server, for example Logs channel, welcome channel, level up channel, etc.');
   }
   if (message.content.toLowerCase() === prefix + 'help setlogs') {
@@ -1466,94 +1466,94 @@ client.on("message", async (message) => {
     if (message.content.toLowerCase() === prefix + "help us" || message.content.toLowerCase() === '`help us') {
       const pagination = require('discord.js-pagination');
       const startup = new Discord.MessageEmbed()
-      .setColor('RANDOM')
-      .setDescription(`React to ◀ and ▶ to change pages\n**Commands are still being added**\nUse \`${prefix}help<command>\` for more info about a command.`)
-      .setTitle(`Commands, prefix is ${prefix}`)
-      .setThumbnail(client.user.displayAvatarURL())
-      .setTimestamp()
+        .setColor('RANDOM')
+        .setDescription(`React to ◀ and ▶ to change pages\n**Commands are still being added**\nUse \`${prefix}help<command>\` for more info about a command.`)
+        .setTitle(`Commands, prefix is ${prefix}`)
+        .setThumbnail(client.user.displayAvatarURL())
+        .setTimestamp()
       const mod = new Discord.MessageEmbed()
-      .setTitle('⛔ Moderation -')
-      .setThumbnail('https://i.imgur.com/O3DHIA5.gif?noredirect')
-      .addFields(
-        { name: 'ban', value:`\`ban\` command is used for banning any guild member with a DM to the member banned (Reason is optional)`, inline: true },
-        { name: 'softban', value: `\`softban\` command is used for banning any member but that member is not banned from the guild. He/she can\'t send any messages.` , inline: true },
-        { name: 'kick', value: "`kick` command is used for kicking any guild member with a DM to the member banned (Reason is optional)", inline: true },
-        { name: 'poll', value: "`poll` command is used to create polls with reactions YES, NO or OTHER." , inline: true },
-        { name: 'clear', value: "`clear` command is used for deleting multiple messages at a time." , inline: true },
-        { name: 'warn', value: '`warn` command is used for warning any member with reason, Fab will DM that member with reason and moderator name.' , inline: true },
-        { name: 'bcount', value: "`bcount` command sends number of banned members in the guild.", inline: true },
-        { name: 'serverinfo', value: "`serverinfo` command will send a neat embed with all information about a guild.", inline: true },
-        { name: 'userinfo', value: "`userinfo` command is used for getting detailed info about a member/user in a neat embed.", inline: true },
-        { name: 'settings', value:'`settings` command will send an embed with details/settings of your server, for example Logs channel, welcome channel, etc.' ,inline: true }
-      )
-      .setDescription(`**For more info about a command type ${prefix}help<command> **`)
-      .setColor('RED')
-      .setFooter('Commands are still being added')
-      .setTimestamp()
+        .setTitle('⛔ Moderation -')
+        .setThumbnail('https://i.imgur.com/O3DHIA5.gif?noredirect')
+        .addFields(
+          { name: 'ban', value: `\`ban\` command is used for banning any guild member with a DM to the member banned (Reason is optional)`, inline: true },
+          { name: 'softban', value: `\`softban\` command is used for banning any member but that member is not banned from the guild. He/she can\'t send any messages.`, inline: true },
+          { name: 'kick', value: "`kick` command is used for kicking any guild member with a DM to the member banned (Reason is optional)", inline: true },
+          { name: 'poll', value: "`poll` command is used to create polls with reactions YES, NO or OTHER.", inline: true },
+          { name: 'clear', value: "`clear` command is used for deleting multiple messages at a time.", inline: true },
+          { name: 'warn', value: '`warn` command is used for warning any member with reason, Fab will DM that member with reason and moderator name.', inline: true },
+          { name: 'bcount', value: "`bcount` command sends number of banned members in the guild.", inline: true },
+          { name: 'serverinfo', value: "`serverinfo` command will send a neat embed with all information about a guild.", inline: true },
+          { name: 'userinfo', value: "`userinfo` command is used for getting detailed info about a member/user in a neat embed.", inline: true },
+          { name: 'settings', value: '`settings` command will send an embed with details/settings of your server, for example Logs channel, welcome channel, etc.', inline: true }
+        )
+        .setDescription(`**For more info about a command type ${prefix}help<command> **`)
+        .setColor('RED')
+        .setFooter('Commands are still being added')
+        .setTimestamp()
       const cl = require('nekos.life');
       const nekos = new cl
       const image = await nekos.sfw.slap();
       const fun = new Discord.MessageEmbed()
-      .setTitle('🏃‍♀️ Fun-')
-      .setThumbnail(image.url)
-      .addFields(
-       { name: 'npm', value: '`npm` command is used for searching packages through NPM website.', inline: true },
-       { name: 'youtube', value:"`youtube` or `yt` command will send a youtube link based on your arguments.", inline: true },
-       { name: 'gis', value:"`gis` stands for *Google Image Search* that uses Google's API to search for images." , inline: true },
-       { name: 'news', value: '`news` command sends a random latest news from reddit.', inline: true },
-       { name: 'joke', value: '`joke` command sends you a random joke.' ,inline: true },
-       { name: 'advice', value: '`advice` command sends you a random advice.', inline: true },
-       { name: 'kpop', value: '`kpop` sends a random kpop image.', inline: true },
-       { name: 'kiss', value:'`kiss` command sends a random kiss gif!', inline: true },
-       { name: 'punch', value:'`punch` command sends a random punch gif!', inline: true },
-       { name: 'pat', value:'`pat` command sends a random pat gif!',inline: true },
-       { name: 'slap', value: '`slap` command sends a random slap gif!', inline: true },
-       { name: 'spank', value: '`spank` command sends a random spank gif (BUT NOT NSFW)!', inline: true },
-       { name: 'poke', value: '`poke` command sends a random poke gif!', inline: true },
-       { name: 'hug', value: '`hug` command sends a random hug gif!', inline: true },
-       { name: 'avatar', value: '`avatar` command sends avatar of mentioned user or the message author', inline: true },
-     )
-     .setDescription(`**For more info about a command type ${prefix}help<command> **`)
-     .setColor('BLUE')
-     .setFooter('Commands are still being added')
-     .setTimestamp()
-     const level = new Discord.MessageEmbed()
-     .setTitle('💎 Leveling system-')
-     .setColor('GREEN')
-     .addFields(
-       { name: 'rank', value: '`rank` command sends your rank card with XP and Level!', inline: true },
-       { name: 'leaderboard', value: '`leaderboard` command sends leaderboard of top 5 members in the guild!', inline: true },
-       { name: 'lb', value: '`lb` command tells your or mentioned members\'s position on leaderboard for your server!', inline: true },
-     )
-     .setDescription(`**For more info about a command type ${prefix}help<command> **`)
-     .setTimestamp()
- const games = new Discord.MessageEmbed()
- .setTimestamp()
- .setTitle('🏓 Games-')
- .addFields(
-   { name: 'battle', value: '`battle` command starts a battle between message author and mentioned user', inline: true },
-   { name: 'ispy', value: '`ispy` command starts a game of ispy between message author and mentioned user', inline: true }
- )
- .setColor('RANDOM')
- .setDescription(`**For more info about a command type ${prefix}help<command> **`);
- const music = new Discord.MessageEmbed()
- .setTitle('🎶 Music-')
- .addFields(
-   { name: 'play', value: '`play` command is used for playing song in a voice channel!', inline: true },
-   { name: 'stop', value: '`stop` command stops playing music, disconnects Fab and deletes queue!', inline: true },
-   { name: 'queue', value:'`queue` command sends an embed with songs that are in queue.' , inline: true },
-   { name: 'volume', value: '`volume` command sets the volume between 1 to 10', inline: true },
-   { name: 'remove', value:'`remove` command is used for removing any song from queue.', inline: true },
-   { name: 'now-playing', value:'`now-playing` or `np` command sends now playing song in the voice channel, or it will send null if no song is playing.', inline: true},
-   { name: 'lyrics',value: '`lyrics` command sends lyrics of requested song', inline: true},
-   { name: 'skip', value: '`skip` command skips to the next song in queue, if there is no next song Fab will simply disconnect from voice channel.', inline: true },
-   { name: 'pause', value:'`pause` command pauses the song that is currently playing.', inline: true },
-   { name: 'resume', value:'`resume` command resumes the song from where it was paused.', inline: true },
- )
- .setDescription(`**For more info about a command type ${prefix}help<command> **`)
- .setThumbnail('https://media2.giphy.com/media/tqfS3mgQU28ko/giphy.gif')
- .setColor('CYAN')
- .setTimestamp()
+        .setTitle('🏃‍♀️ Fun-')
+        .setThumbnail(image.url)
+        .addFields(
+          { name: 'npm', value: '`npm` command is used for searching packages through NPM website.', inline: true },
+          { name: 'youtube', value: "`youtube` or `yt` command will send a youtube link based on your arguments.", inline: true },
+          { name: 'gis', value: "`gis` stands for *Google Image Search* that uses Google's API to search for images.", inline: true },
+          { name: 'news', value: '`news` command sends a random latest news from reddit.', inline: true },
+          { name: 'joke', value: '`joke` command sends you a random joke.', inline: true },
+          { name: 'advice', value: '`advice` command sends you a random advice.', inline: true },
+          { name: 'kpop', value: '`kpop` sends a random kpop image.', inline: true },
+          { name: 'kiss', value: '`kiss` command sends a random kiss gif!', inline: true },
+          { name: 'punch', value: '`punch` command sends a random punch gif!', inline: true },
+          { name: 'pat', value: '`pat` command sends a random pat gif!', inline: true },
+          { name: 'slap', value: '`slap` command sends a random slap gif!', inline: true },
+          { name: 'spank', value: '`spank` command sends a random spank gif (BUT NOT NSFW)!', inline: true },
+          { name: 'poke', value: '`poke` command sends a random poke gif!', inline: true },
+          { name: 'hug', value: '`hug` command sends a random hug gif!', inline: true },
+          { name: 'avatar', value: '`avatar` command sends avatar of mentioned user or the message author', inline: true },
+        )
+        .setDescription(`**For more info about a command type ${prefix}help<command> **`)
+        .setColor('BLUE')
+        .setFooter('Commands are still being added')
+        .setTimestamp()
+      const level = new Discord.MessageEmbed()
+        .setTitle('💎 Leveling system-')
+        .setColor('GREEN')
+        .addFields(
+          { name: 'rank', value: '`rank` command sends your rank card with XP and Level!', inline: true },
+          { name: 'leaderboard', value: '`leaderboard` command sends leaderboard of top 5 members in the guild!', inline: true },
+          { name: 'lb', value: '`lb` command tells your or mentioned members\'s position on leaderboard for your server!', inline: true },
+        )
+        .setDescription(`**For more info about a command type ${prefix}help<command> **`)
+        .setTimestamp()
+      const games = new Discord.MessageEmbed()
+        .setTimestamp()
+        .setTitle('🏓 Games-')
+        .addFields(
+          { name: 'battle', value: '`battle` command starts a battle between message author and mentioned user', inline: true },
+          { name: 'ispy', value: '`ispy` command starts a game of ispy between message author and mentioned user', inline: true }
+        )
+        .setColor('RANDOM')
+        .setDescription(`**For more info about a command type ${prefix}help<command> **`);
+      const music = new Discord.MessageEmbed()
+        .setTitle('🎶 Music-')
+        .addFields(
+          { name: 'play', value: '`play` command is used for playing song in a voice channel!', inline: true },
+          { name: 'stop', value: '`stop` command stops playing music, disconnects Fab and deletes queue!', inline: true },
+          { name: 'queue', value: '`queue` command sends an embed with songs that are in queue.', inline: true },
+          { name: 'volume', value: '`volume` command sets the volume between 1 to 10', inline: true },
+          { name: 'remove', value: '`remove` command is used for removing any song from queue.', inline: true },
+          { name: 'now-playing', value: '`now-playing` or `np` command sends now playing song in the voice channel, or it will send null if no song is playing.', inline: true },
+          { name: 'lyrics', value: '`lyrics` command sends lyrics of requested song', inline: true },
+          { name: 'skip', value: '`skip` command skips to the next song in queue, if there is no next song Fab will simply disconnect from voice channel.', inline: true },
+          { name: 'pause', value: '`pause` command pauses the song that is currently playing.', inline: true },
+          { name: 'resume', value: '`resume` command resumes the song from where it was paused.', inline: true },
+        )
+        .setDescription(`**For more info about a command type ${prefix}help<command> **`)
+        .setThumbnail('https://media2.giphy.com/media/tqfS3mgQU28ko/giphy.gif')
+        .setColor('CYAN')
+        .setTimestamp()
       const pages = [
         startup,
         mod,
@@ -1564,7 +1564,7 @@ client.on("message", async (message) => {
       ]
       const emojilist = ['◀', '▶'];
       const time = '120000';
-     pagination(message, pages, emojilist, time);
+      pagination(message, pages, emojilist, time);
     }
 
     if (command === "reactions") {
