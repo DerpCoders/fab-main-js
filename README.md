@@ -1,3 +1,5 @@
+<img src="https://cdn.discordapp.com/avatars/759762948016177195/5965807787c17574f114d83c9f23defd.webp?size=2048" alt="Fab pfp">
+
 # A general Discord.js Bot
 A general Discord.js bot with some moderation and fun commands. Hey Fab, I'mma kill you#0640 
 
