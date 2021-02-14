@@ -3,11 +3,10 @@
 <img src="https://cdn.discordapp.com/avatars/759762948016177195/5965807787c17574f114d83c9f23defd.webp?size=2048" width="214" height="214" alt="Fab pfp" align="center">
 
 # A general Discord.js Bot
-A general Discord.js bot with some moderation and fun commands. Hey Fab, I'mma kill you#0640 
+A general Discord.js bot with moderation and fun commands.
 
 ## Configuration
 Your bot's token and prefix will be in config.json.
-
 
 ## Getting Started 
 
