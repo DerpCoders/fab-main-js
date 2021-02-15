@@ -1,4 +1,4 @@
-<img src="https://cdn.discordapp.com/avatars/759762948016177195/5965807787c17574f114d83c9f23defd.webp?size=2048" width="214" height="214" alt="Fab pfp" align="center">
+<img width="150" height="150" align="left" style="float: left; margin: 0 10px 0 0;" alt="Fab" src="https://cdn.discordapp.com/avatars/759762948016177195/5965807787c17574f114d83c9f23defd.webp">  
 
 # Fab
 [![Discord](https://discordapp.com/api/guilds/729340392327217193/embed.png)](https://discord.gg/mTr83zt)
