@@ -6,10 +6,12 @@
 Fab is a multipurpose discord bot coded in JavaScript with
 [discord.js](https://discord.js.org/) using the. With over
 50 commands. This bot is still under development and commands and features are still being added.
+**This repository will not be updated from now onwards, sry tho ;)\nYou can join our server for any issues, errors or bugs.**
 
 
 # A general Discord.js Bot
 A general Discord.js bot with moderation and fun commands.
+[Library - Discord.js](https://discordjs.org)
 
 ## Configuration
 Your bot's token and prefix will be in config.json.
