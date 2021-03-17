@@ -14,7 +14,7 @@ You can join our server for any issues, errors or bugs.**
 
 # A general Discord.js Bot
 A general Discord.js bot with moderation and fun commands.
-[Library - Discord.js](https://discordjs.org)
+Library - [Discord.js](https://discord.js.org)
 
 ## Configuration
 Your bot's token and prefix will be in config.json.
