@@ -8,7 +8,14 @@
 </h1>
 
 <h4 align="center">Music, Moderation, Leveling, Fun and much more.</h4>
-
+<p align="center">
+  <a href="https://discord.com/invite/AzarZsbkvC">
+    <img src="https://discordapp.com/api/guilds/729340392327217193/widget.png?style=shield" alt="Discord Server">
+  </a>
+  <a href="https://discord.js.org/">
+     <img src="https://avatars.githubusercontent.com/u/26492485?s=200&v=4" alt="discord.js">
+  </a>
+</p>
 # Fab
 [![Discord](https://cdn.discordapp.com/icons/729340392327217193/30232e21b6efa0e86b0b107b56f0af71.webp?size=128)](https://discord.gg/AzarZsbkvC)
 
