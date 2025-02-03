@@ -1,4 +1,4 @@
-<img width="150" height="150" align="left" style="float: left; margin: 0 10px 0 0;" alt="Fab" src="https://images-ext-1.discordapp.net/external/vwJ8WT1u5oEJcx2LoO9w3-bruNq8LXIh51QUmTBe6Hk/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/759762948016177195/a_9141f03e513064ac585b59300075ad5e.gif">  
+<img width="150" height="150" align="left" style="float: left; margin: 0 10px 0 0;" alt="Fab" src="https://cdn.discordapp.com/avatars/759762948016177195/a_9141f03e513064ac585b59300075ad5e.png?size=128">  
 
 # Fab
 [![Discord](https://cdn.discordapp.com/avatars/759762948016177195/a_9141f03e513064ac585b59300075ad5e.png?size=128)](https://discord.gg/AzarZsbkvC)
@@ -8,8 +8,8 @@ Fab is a multipurpose discord bot coded in JavaScript with
 50 commands. This bot is still under development and commands and features are still being added.
 
 ## Important message
-**This repository will not be updated from now onwards, sry tho ;)
-You can join our server for any issues, errors or bugs.**
+**Fab is currently running on an outdated version of discord.js (v13),
+You can join our [support server](https://discord.gg/AzarZsbkvC) for any issues, errors or bugs.**
 
 
 # A general Discord.js Bot
@@ -17,7 +17,7 @@ A general Discord.js bot with moderation and fun commands.
 Library - [Discord.js](https://discord.js.org)
 
 ## Configuration
-Your bot's token and prefix will be in config.json.
+Your bot's token and prefix will be loaded from config.json.
 
 ## Getting Started 
 
