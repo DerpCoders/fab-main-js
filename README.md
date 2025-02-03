@@ -1,7 +1,7 @@
 <img width="150" height="150" align="left" style="float: left; margin: 0 10px 0 0;" alt="Fab" src="https://images-ext-1.discordapp.net/external/vwJ8WT1u5oEJcx2LoO9w3-bruNq8LXIh51QUmTBe6Hk/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/759762948016177195/a_9141f03e513064ac585b59300075ad5e.gif">  
 
 # Fab
-[![Discord]([https://avatars.githubusercontent.com/u/26492485?s=200&v=4](https://cdn.discordapp.com/avatars/759762948016177195/a_9141f03e513064ac585b59300075ad5e.png?size=2048))](https://discord.gg/AzarZsbkvC)
+[![Discord]((https://cdn.discordapp.com/avatars/759762948016177195/a_9141f03e513064ac585b59300075ad5e.png?size=2048))](https://discord.gg/AzarZsbkvC)
 
 Fab is a multipurpose discord bot coded in JavaScript with
 [discord.js](https://discord.js.org/) using the. With over
