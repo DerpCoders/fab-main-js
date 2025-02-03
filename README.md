@@ -22,6 +22,12 @@
 Fab is a multipurpose discord bot coded in JavaScript with
 [discord.js](https://discord.js.org/). With over
 50 commands. This bot is still under development and commands and features are still being added.
+Fab is a fully modular bot – meaning all features and commands can be enabled/disabled to your
+liking, making it completely customizable. This is a *self-hosted bot* – meaning you will need
+to host and maintain your own instance. You can turn Red into an admin bot, music bot, fun bot,
+new best friend or all of these together! 
+
+**This bot is still under development and commands and features are still being added.**
 
 ## Important message
 **Fab is currently running on an outdated version of discord.js (v13),
@@ -38,9 +44,9 @@ Your bot's token and prefix will be loaded from config.json.
 ## Getting Started 
 
 1. Step 1: Download this code on your PC.
-2. Step 2: After downloading open your terminal and type `npm i` before running bot `node .` or `node index.js`.
+2. Step 2: After downloading, open your terminal and type `npm install` to install all the required dependencies before running the bot.
 3. Step 3: Go to `config.json` and add your bot's token and prefix.
-4. Step 4: Type `node .` in terminal. Done! :D Enjoy and you can edit your code as you want.
+4. Step 4: Run `node index.js` in terminal. All Done! :D Enjoy and you can edit your code as you want.
 
 ## Example discord.js code setup
 
@@ -62,7 +68,7 @@ client.login('your-token-goes-here');
 ```
 
 ## Join our server || Invite Fab in your server!
-[Join our support server](https://discord.gg/J73GfuFxNq)
+[Join our support server](https://discord.com/invite/AzarZsbkvC)
 [Invite Fab](https://discord.com/api/oauth2/authorize?client_id=759762948016177195&permissions=8&scope=bot)
 ## Checkout other repositories!
 
