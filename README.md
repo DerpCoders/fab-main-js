@@ -1,4 +1,4 @@
-<img width="150" height="150" align="left" style="float: left; margin: 0 10px 0 0;" alt="Fab" src="https://cdn.discordapp.com/avatars/759762948016177195/a_9141f03e513064ac585b59300075ad5e.png?size=128">  
+<img width="150" height="150" align="left" style="float: left; margin: 0 10px 0 0;" alt="Fab" src="https://cdn.discordapp.com/avatars/759762948016177195/a_9141f03e513064ac585b59300075ad5e.png?size=32">  
 
 # Fab
 [![Discord](https://cdn.discordapp.com/icons/729340392327217193/30232e21b6efa0e86b0b107b56f0af71.webp?size=128)](https://discord.gg/AzarZsbkvC)
