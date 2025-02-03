@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <br>
-  <a href="https://github.com/DerpCoders/Fab"><img src="https://cdn.discordapp.com/avatars/759762948016177195/a_9141f03e513064ac585b59300075ad5e.png?size=128" alt="Fab - Discord Bot"></a>
+  <a href="https://github.com/DerpCoders/fab-main-js"><img src="https://cdn.discordapp.com/avatars/759762948016177195/a_9141f03e513064ac585b59300075ad5e.png?size=128" alt="Fab - Discord Bot"></a>
   <br>
   Fab
   <br>
