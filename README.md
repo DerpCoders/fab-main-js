@@ -48,18 +48,19 @@ Your bot's token and prefix will be loaded from config.json.
 ```js
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const { prefix, token } = require('./config.json')
 
-client.once('ready', () => {
+client.on('ready', () => {
 	console.log('Ready!');
 });
 
-client.on('message', message => {
-    if(message.content.toLowerCase() === 'ping'){
-       message.reply('Pong!') // Test command
+client.on('messageCreate', message => {
+    if(message.content === prefix + 'ping'){
+       message.reply({content: 'Pong!'}) // Test command
     }
 })
 
-client.login('your-token-goes-here');
+client.login(token);
 ```
 
 ## Join our server || Invite Fab in your server!
