@@ -4,7 +4,7 @@
 [![Discord](https://cdn.discordapp.com/icons/729340392327217193/30232e21b6efa0e86b0b107b56f0af71.webp?size=128)](https://discord.gg/AzarZsbkvC)
 
 Fab is a multipurpose discord bot coded in JavaScript with
-[discord.js](https://discord.js.org/) using the. With over
+[discord.js](https://discord.js.org/). With over
 50 commands. This bot is still under development and commands and features are still being added.
 
 ## Important message
