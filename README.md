@@ -17,7 +17,7 @@
   </a>
 </p>
 
-# Fab
+# Overview
 [![Discord](https://cdn.discordapp.com/icons/729340392327217193/30232e21b6efa0e86b0b107b56f0af71.webp?size=128)](https://discord.gg/AzarZsbkvC)
 
 Fab is a multipurpose discord bot coded in JavaScript with
