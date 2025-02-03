@@ -13,7 +13,7 @@
     <img src="https://discordapp.com/api/guilds/729340392327217193/widget.png?style=shield" alt="Discord Server">
   </a>
   <a href="https://discord.js.org/">
-     <img src="ttps://img.shields.io/badge/discord-js-blue.svg" alt="discord.js">
+     <img src="https://img.shields.io/badge/discord-js-blue.svg" alt="discord.js">
   </a>
 </p>
 # Fab
