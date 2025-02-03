@@ -33,10 +33,6 @@ new best friend or all of these together!
 You can join our [support server](https://discord.gg/AzarZsbkvC) for any issues, errors or bugs.**
 
 
-# A general Discord.js Bot
-A general Discord.js bot with moderation and fun commands.
-Library - [Discord.js](https://discord.js.org)
-
 ## Configuration
 Your bot's token and prefix will be loaded from config.json.
 
