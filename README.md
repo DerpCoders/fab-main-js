@@ -23,10 +23,10 @@ Fab is a multipurpose discord bot coded in JavaScript with
 [discord.js](https://discord.js.org/). With over 50 commands.
 A fully modular bot – meaning all features and commands can be enabled/disabled to your
 liking, making it completely customizable. This is a *self-hosted bot* – meaning you will need
-to host and maintain your own instance. You can turn Red into an admin bot, music bot, fun bot,
+to host and maintain your own instance. You can turn Fab into an admin bot, music bot, fun bot,
 new best friend or all of these together! 
 
-**This bot is still under development and commands and features are still being added.**
+**Note: This bot is still under development and commands and features are still being added.**
 
 ## Important message
 **Fab is currently running on an outdated version of discord.js (v13),
