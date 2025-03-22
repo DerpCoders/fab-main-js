@@ -5,6 +5,6 @@ client = commands.Bot(command_prefix='!')
 
 @client.command()
 async def ping(ctx):
-    await ctx.send('Pong!')
+    await ctx.send({content: 'Pong!'})
 
 client.run('TOKEN')

@@ -2,6 +2,14 @@ node_modules/
 index.jsx
 /src/.DS_Store
 /src/commands/.DS_Store
-Procfile
 .DS_Store
 /database/null
+1739439875921-base.js
+/src/commands/utility/createchat.js
+/src/commands/utility/disablechat.js
+/database/models/chatSchema.js
+.env
+oauth.js
+tokens.json
+credentials.json
+/.data

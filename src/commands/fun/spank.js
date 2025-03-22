@@ -45,26 +45,30 @@ module.exports = {
     }
     if (CMD.has(message.author.id)) {
       message.channel
-        .send(`**🚫 Please wait 5 seconds before using that command again**`)
-        .then((sentmsg) => sentmsg.delete({ timeout: 5000 }));
+        .send({content: `**🚫 Please wait 5 seconds before using that command again**`})
+        .then((sentmsg) => {
+          setTimeout(()=>{
+            sentmsg.delete()
+          },5000)
+        });
     } else if (!spUser || message.author.id == spUser.id) {
-      message.channel.send("❌ **Wrong arguments please mention someone.**");
+      message.channel.send({content: "❌ **Wrong arguments please mention someone.**"});
       CMD.add(message.author.id);
       setTimeout(() => {
         CMD.delete(message.author.id);
       }, 5000);
     } else if (spUser.id === "759762948016177195")
-      return message.channel.send("Hahaha, you can't do that with me.");
+      return message.channel.send({content: "Hahaha, you can't do that with me."});
     else {
-      const aEmbed = new Discord.MessageEmbed()
-        .setColor("RANDOM")
-        .setAuthor(
-          `${message.author.username} spanked ${spUser.displayName} ` + title,
-          message.author.displayAvatarURL({ size: 2048, dynamic: true })
-        )
+      const aEmbed = new Discord.EmbedBuilder()
+        .setColor('Random')
+        .setAuthor({
+          name: `${message.author.username} spanked ${spUser.displayName} ` + title,
+          iconURL: message.author.displayAvatarURL({ size: 2048, dynamic: true })
+    })
         .setImage((URL = url1))
         .setFooter(origin, (URL = footer));
-      message.channel.send(aEmbed);
+      message.channel.send({embeds: [aEmbed]});
       CMD.add(message.author.id);
       setTimeout(() => {
         CMD.delete(message.author.id);

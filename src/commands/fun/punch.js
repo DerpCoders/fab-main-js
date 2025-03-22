@@ -5,7 +5,7 @@ module.exports = {
   name: "punch",
   description: "punch",
   execute(message, args) {
-    if (message.channel.type === "text") {
+    if (message.channel.type === Discord.ChannelType.GuildText) {
       const punchUser = message.mentions.members.last();
       function getRandomInt(min, max) {
         min = Math.ceil(min);
@@ -59,27 +59,31 @@ module.exports = {
       }
       if (commandCOOLDOWN.has(message.author.id)) {
         message.channel
-          .send(`**🚫 Please wait 5 seconds before using that command again**`)
-          .then((sentmsg) => sentmsg.delete({ timeout: 5000 }));
+          .send({content: `**🚫 Please wait 5 seconds before using that command again**`})
+          .then((sentmsg) => {
+            setTimeout(()=>{
+              sentmsg.delete()
+            },5000)
+          });
       } else if (!punchUser || message.author.id == punchUser.id) {
-        message.channel.send("❌ **Wrong arguments please mention someone.**");
+        message.channel.send({content: "❌ **Wrong arguments please mention someone.**"});
         commandCOOLDOWN.add(message.author.id);
         setTimeout(() => {
           commandCOOLDOWN.delete(message.author.id);
         }, 5000);
       } else if (punchUser.id === "759762948016177195")
-        return message.channel.send("Hahaha, you can't do that with me.");
+        return message.channel.send({content: "Hahaha, you can't do that with me."});
       else {
-        const aEmbed = new Discord.MessageEmbed()
-          .setColor("RANDOM")
-          .setAuthor(
-            `${message.author.username} punched ${punchUser.displayName} ` +
+        const aEmbed = new Discord.EmbedBuilder()
+          .setColor('Random')
+          .setAuthor({
+            name: `${message.author.username} punched ${punchUser.displayName} ` +
               title,
-            message.author.displayAvatarURL({ size: 2048, dynamic: true })
-          )
+            iconURL: message.author.displayAvatarURL({ size: 2048, dynamic: true })
+      })
           .setImage((URL = url1))
-          .setFooter(origin);
-        message.channel.send(aEmbed);
+          .setFooter({text:origin});
+        message.channel.send({embeds: [aEmbed]});
         commandCOOLDOWN.add(message.author.id);
         setTimeout(() => {
           commandCOOLDOWN.delete(message.author.id);

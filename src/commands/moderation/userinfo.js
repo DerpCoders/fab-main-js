@@ -1,122 +1,96 @@
 const Discord = require("discord.js");
 const emojis = require('../../utils/emojis.json');
+const moment = require('moment');
 
 module.exports = {
   name: "userinfo",
   description: "userinfo",
+  /**
+   * @param {Discord.Message} message 
+   * @param {string[]} args 
+   * @returns 
+   */
   async execute(message, args) {
     try {
       const flags = {
-        DISCORD_EMPLOYEE: `${emojis.discord_employee} \`Discord Employee\``,
-        DISCORD_PARTNER: `${emojis.discord_partner} \`Partnered Server Owner\``,
-        BUGHUNTER_LEVEL_1: `${emojis.bughunter_level_1} \`Bug Hunter (Level 1)\``,
-        BUGHUNTER_LEVEL_2: `${emojis.bughunter_level_2} \`Bug Hunter (Level 2)\``,
-        HYPESQUAD_EVENTS: `${emojis.hypesquad_events} \`HypeSquad Events\``,
-        HOUSE_BRAVERY: `${emojis.house_bravery} \`House of Bravery\``,
-        HOUSE_BRILLIANCE: `${emojis.house_brilliance} \`House of Brilliance\``,
-        HOUSE_BALANCE: `${emojis.house_balance} \`House of Balance\``,
+        Staff: `${emojis.discord_employee} \`Discord Employee\``,
+        Partner: `${emojis.discord_partner} \`Partnered Server Owner\``,
+        BugHunterLevel1: `${emojis.bughunter_level_1} \`Bug Hunter (Level 1)\``,
+        BugHunterLevel2: `${emojis.bughunter_level_2} \`Bug Hunter (Level 2)\``,
+        Hypesquad: `${emojis.hypesquad_events} \`HypeSquad Events\``,
+        HypeSquadOnlineHouse1: `${emojis.house_bravery} \`House of Bravery\``,
+        HypeSquadOnlineHouse2: `${emojis.house_brilliance} \`House of Brilliance\``,
+        HypeSquadOnlineHouse3: `${emojis.house_balance} \`House of Balance\``,
         EARLY_SUPPORTER: `${emojis.early_supporter} \`Early Supporter\``,
         TEAM_USER: "Team User",
         SYSTEM: "System",
-        VERIFIED_BOT: `${emojis.verified_bot} \`Verified Bot\``,
-        VERIFIED_DEVELOPER: `${emojis.verified_developer} \`Early Verified Bot Developer\``,
+        VerifiedBot: `${emojis.verified_bot} \`Verified Bot\``,
+        VerifiedDeveloper: `${emojis.verified_developer} \`Early Verified Bot Developer\``,
+        ActiveDeveloper: `${emojis.active_developer} \`Active Developer\`` 
       };
       
-      const userinf = message.mentions.members.last() || message.member;
-      const userFlags = (await userinf.user.fetchFlags()).toArray();
-
-      const play = message.guild.member(userinf).presence.activities;
-      if (play.toString() === "") {
-        const infoaEmbed = new Discord.MessageEmbed()
-          .setColor("RANDOM")
-          .setAuthor(
-            `${userinf.user.tag}`,
-            userinf.user.displayAvatarURL({ dynamic: true })
-          )
+      let userinf;
+      if(message.mentions.members.last()){
+        userinf = message.mentions.members.last();
+      }else if(args[0]){
+        userinf = message.guild.members.cache.get(args[0]);
+      }else {
+        userinf = message.member;
+      }
+      const userFlags = (await userinf.user.fetch()).flags.toArray();
+      let globalname=userinf.user.globalName;
+      let play;
+      let status;
+      if (!message.guild.members.cache.get(userinf.user.id).presence) {
+        status = 'offline'
+        play = 'None';
+      } else {
+        status = message.guild.members.cache.get(userinf.user.id).presence.status;
+      }
+      if (message.guild.members.cache.get(userinf.user.id).presence){
+        if (message.guild.members.cache.get(userinf.user.id).presence.activities.length == 0){
+          play = 'None';
+        } else {
+          play = message.guild.members.cache.get(userinf.user.id).presence.activities[0].name
+        }
+      }
+        const infoaEmbed = new Discord.EmbedBuilder()
+          .setColor(userinf.displayHexColor || "Random")
+          .setAuthor({
+            name: `User - ${globalname}`,
+            iconURL: userinf.user.displayAvatarURL()
+      })
           .setThumbnail(
             userinf.user.displayAvatarURL({ size: 2048, dynamic: true })
           )
-          .addField("**🆔 ID-**", `${userinf.id}`, true)
-          .addField(
-            "**🖋 Nickname-**",
-            `${message.guild.member(userinf).displayName}`,
-            true
-          )
-          .addField("**🖊 Username-**", `${userinf.user.tag}`, true)
-          .addField(
-            "**🙄 Status-**",
-            `${message.guild.member(userinf).presence.status}`,
-            true
-          )
-          .addField("**🏃‍♀️ Playing-**", `N/A`, true)
-          .addField("**🖋 Mention-**", `<@${userinf.id}>`, true)
-          .addField("**📅 Created at-**", `${userinf.user.createdAt}`, true)
-          .addField("**🟢 Roles-**", `${userinf.roles.cache.size - 1}`, true)
-          .addField(
-            "**📅 Joined at-**",
-            `${message.guild.member(userinf).joinedAt}`,
-            true
-          )
+          .addFields(
+                      {name:'**🆔 ID**', value: `${userinf.user.id}`, inline: true},
+                      {name:"**🖊 Nickname-**", value: `${userinf.displayName}`, inline: true},
+                      {name: "**🖋 Username-**", value:`${userinf.user.username}`, inline: true},
+                      {name: "**🌐 Global Name-**", value: `${globalname}`,inline: true},
+                      {name: "**🙄 Status-**", value: `${status}`, inline: true},
+                      {name: "**🏃‍♀️ Playing-**", value: `${play}`, inline: true },
+                      {name: "**🖋 Mention-**", value: `<@${userinf.user.id}>`, inline: true},
+                      {name: "**📅 Created at-**", value: `${userinf.user.createdAt.toLocaleDateString('en-US')}\n(${moment(userinf.user.createdAt).fromNow()})`, inline: true},
+                      {name: "**🟢 Roles-**", value: `${userinf.roles.cache.size - 1}`, inline: true},
+                      {name: "**📅 Joined at-**", value: `${userinf.joinedAt}`, inline: true}
+                    )
           .setTimestamp()
-          .setFooter(
-            `Requested by ${message.author.tag}`,
-            message.author.displayAvatarURL({ dynamic: true })
-          );
+          .setFooter({
+            text: `Requested by ${message.author.username}`,
+            iconURL: message.author.displayAvatarURL({ dynamic: true })
+      });
         
         if (userFlags.length > 0)
-          infoaEmbed.addField(
-            "Badges",
-            userFlags.map((flag) => flags[flag]).join("\n")
-          );
-        message.channel.send(infoaEmbed);
-      } else {
-        const infoEmbed = new Discord.MessageEmbed()
-          .setColor("RANDOM")
-          .setAuthor(
-            `${userinf.user.tag}`,
-            userinf.user.displayAvatarURL({ dynamic: true })
-          )
-          .setThumbnail(
-            userinf.user.displayAvatarURL({ size: 2048, dynamic: true })
-          )
-          .addField("**🆔 ID**", `${userinf.id}`, true)
-          .addField(
-            "**🖊 Nickname-**",
-            `${message.guild.member(userinf).displayName}`,
-            true
-          )
-          .addField("**🖋 Username-**", `${userinf.user.tag}`, true)
-          .addField(
-            "**🙄 Status-**",
-            `${message.guild.member(userinf).presence.status}`,
-            true
-          )
-          .addField("**🏃‍♀️ Playing-**", `${play}`, true)
-          .addField("**🖋 Mention-**", `<@${userinf.id}>`, true)
-          .addField("**📅 Created at-**", `${userinf.user.createdAt}`, true)
-          .addField("**🟢 Roles-**", `${userinf.roles.cache.size - 1}`, true)
-          .addField(
-            "**📅 Joined at-**",
-            `${message.guild.member(userinf).joinedAt}`,
-            true
-          )
-          .setTimestamp()
-          .setFooter(
-            `Requested by ${message.author.tag}`,
-            message.author.displayAvatarURL({ dynamic: true })
-          );
-      
-        if (userFlags.length > 0)
-          infoEmbed.addField(
-            "Badges",
-            userFlags.map((flag) => flags[flag]).join("\n")
-          );
-        message.channel.send(infoEmbed);
-      }
+          infoaEmbed.addFields({
+            name: "Badges",
+            value: userFlags.map((flag) => flags[flag]).join("\n")
+      });
+        message.channel.send({embeds: [infoaEmbed]});
     } catch (eror) {
       return (
         message.channel.send(
-          `❌ **There was an error while running this command** \`\`\`${eror}\`\`\` \n Please contact \`Hey Fab, I'mma kill you#0640\``
+          `❌ **There was an error while running this command** \`\`\`${eror}\`\`\` \n Please contact \`papaemeritus.4\``
         ) && console.log(eror)
       );
     }

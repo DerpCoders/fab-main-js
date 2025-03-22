@@ -9,20 +9,19 @@ module.exports = {
 
     let avatar = user.displayAvatarURL({ size: 2048 }).replace(".webp", ".png");
 
-    const msg = await message.channel.send("*Generating ....*");
+    const msg = await message.channel.send({content: "*Generating ....*"});
 
     let img = await Zoro.blur(avatar);
 
-    let attachment = new Discord.MessageAttachment(img, "blur.png");
-    const embed = new Discord.MessageEmbed()
-      .setTitle(`Blurred ${message.guild.member(user).displayName}'s avatar!`)
-      .setColor("RANDOM")
-      .attachFiles([attachment])
+    let attachment = new Discord.AttachmentBuilder(img, {name:"blur.png"});
+    const embed = new Discord.EmbedBuilder()
+      .setTitle(`Blurred ${message.guild.members.cache.get(user.id).displayName}'s avatar!`)
+      .setColor('Random')
       .setImage("attachment://blur.png")
       .setTimestamp();
-    message.channel.send(embed) && msg.delete();
+    message.channel.send({embeds: [embed], files: [attachment] }) && msg.delete();
     if (user.id === "759762948016177195") {
-      message.channel.send("Uhh oh, I can't see anything....");
+      message.channel.send({content: "Uhh oh, I can't see anything...."});
     }
   },
 };

@@ -7,42 +7,46 @@ module.exports = {
   name: "feed",
   async execute(message, args) {
     try {
-      const image = await nekos.sfw.feed();
-      const mem = message.mentions.members.last();
+      const image = await nekos.feed();
+      let mem;
+      
+      if(message.mentions.members.last()) {
+             mem = message.mentions.members.last();
+           }
+            else if(args[0]){
+              mem = message.guild.members.cache.get(args[0]);
+           }
+           else {
+             return message.channel.send({content: '❌ **Wrong arguments please mention someone.**'});
+           }
       if (CMD.has(message.author.id)) {
         message.channel
-          .send(`**🚫 Please wait 5 seconds before using that command again**`)
-          .then((sentmsg) => sentmsg.delete({ timeout: 5000 }));
-      } else if (!mem || message.author.id == mem.id) {
-        message.channel.send("❌ **Wrong arguments please mention someone.**");
+          .send({content: `**🚫 Please wait 5 seconds before using that command again**`})
+          .then((sentmsg) => setTimeout(()=>{sentmsg.delete()},2000));
       } else if (mem.user.bot)
-        return message.channel.send("No, not with bots!");
+        return message.channel.send({content: "No, not with bots!"});
       else if (mem.id === "759762948016177195")
-        return message.channel.send("nay nay");
+        return message.channel.send({content: "nay nay"});
       else {
-        const embed = new Discord.MessageEmbed()
-          .setAuthor(
-            `${message.author.username} feeded ${mem.user.username} 🍼 :D `,
-            message.author.displayAvatarURL({ dynamic: true })
-          )
-          .setColor("RANDOM")
-          .setFooter(
-            `${mem.user.username} || Source: Anime Neko`,
-            mem.user.displayAvatarURL({ dynamic: true })
-          )
+        const embed = new Discord.EmbedBuilder()
+          .setAuthor({
+            name: `${message.author.username} fed ${mem.user.username} 🍼 :D `,
+            iconURL: message.author.displayAvatarURL({ dynamic: true })
+      })
+          .setColor('Random')
+          .setFooter({
+            text: `${mem.user.username} || Source: Neko`,
+            iconURL: mem.user.displayAvatarURL({ dynamic: true })
+      })
           .setImage(image.url);
-        message.channel.send(embed);
+        message.channel.send({embeds: [embed]});
         CMD.add(message.author.id);
         setTimeout(() => {
           CMD.delete(message.author.id);
         }, 5000);
       }
     } catch (eror) {
-      return (
-        message.channel.send(
-          `❌ **There was an error while running this command** \`\`\`${eror}\`\`\` \n Please contact \`Hey Fab, I'mma kill you#0640\``
-        ) && console.log(eror)
-      );
+      return message.channel.send({content: `❌ **Could not find that user!**`}) && console.log(eror);
     }
   },
 };

@@ -11,7 +11,7 @@ if (profile.xp > nxtLvl) {
   const lvlChannel = message.guild.channels.cache.find(
     (ch) => ch.name === "💎level-up💎"
   );
-  const abed = new Discord.MessageEmbed()
+  const abed = new Discord.EmbedBuilder()
     .setAuthor(
       `${message.author.username}`,
       message.author.displayAvatarURL({ dynamic: true })
@@ -21,9 +21,9 @@ if (profile.xp > nxtLvl) {
       `🎉 You just leveled up!!\n🎉 You are now on level ${profile.level + 1}.`
     );
 
-  lvlChannel.send(abed);
+  lvlChannel.send({content: abed});
 
-  if (!lvlChannel) return message.channel.send(abed);
+  if (!lvlChannel) return message.channel.send({content: abed});
 }
 // LEVEL UP ✓
 
@@ -35,7 +35,7 @@ if (command === "levellead") {
     });
     var output2 = await leveling.Fetch(message.mentions.users.first().id);
     message.channel.send(
-      new Discord.MessageEmbed()
+      new Discord.EmbedBuilder()
         .setTitle(`${message.mentions.users.first().tag}`)
         .setColor("#00FF00")
         .setDescription(
@@ -69,7 +69,7 @@ if (command === "levellead") {
         if (users[9])
           var tenthplace = await client.users.fetch(users[9].userid);
         message.channel.send(
-          new Discord.MessageEmbed()
+          new Discord.EmbedBuilder()
             .setTitle(`:bar_chart: LEVEL LEADERBOARD :bar_chart:`)
             .setColor("#00FF00")
             .setDescription(
@@ -148,12 +148,12 @@ else if (message.content === `${prefix}rank`) {
       .setLevel(levelinfo.level);
 
     rank.build().then((data) => {
-      const attachment = new Discord.MessageAttachment(data, "RankCard.png");
-      message.channel.send(attachment);
+      const attachment = new Discord(data, "RankCard.png");
+      message.channel.send({content: attachment});
     });
   } else {
     message.channel.send(
-      new Discord.MessageEmbed()
+      new Discord.EmbedBuilder()
         .setTitle(`${member.user.tag}`)
         .setColor("#00ff00")
         .setDescription(

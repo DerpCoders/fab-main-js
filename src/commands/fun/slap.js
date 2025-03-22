@@ -6,31 +6,35 @@ const nekos = new client();
 module.exports = {
   name: "slap",
  async execute(message, args) {
-    const image = await nekos.sfw.slap();
+    const image = await nekos.slap();
       const mem = message.mentions.members.last();
       if (cooldown.has(message.author.id)) {
         message.channel
-          .send(`**🚫 Please wait 5 seconds before using that command again**`)
-          .then((sentmsg) => sentmsg.delete({ timeout: 5000 }));
+          .send({content: `**🚫 Please wait 5 seconds before using that command again**`})
+          .then((sentmsg) => {
+            setTimeout(()=>{
+              sentmsg.delete()
+            },5000)
+          });
       } else if (!mem || message.author.id == mem.id) {
-        message.channel.send("❌ **Wrong arguments please mention someone.**");
+        message.channel.send({content: "❌ **Wrong arguments please mention someone.**"});
       } else if (mem.user.bot)
-        return message.channel.send("No, not with bots!");
+        return message.channel.send({content: "No, not with bots!"});
       else if (mem.id === "759762948016177195")
-        return message.channel.send("Haha, you can't do that with me");
+        return message.channel.send({content: "Haha, you can't do that with me"});
       else {
-        const embed = new Discord.MessageEmbed()
-          .setAuthor(
-            `${message.author.username} slapped ${mem.user.username} oof`,
-            message.author.displayAvatarURL({ dynamic: true })
-          )
-          .setColor("RANDOM")
-          .setFooter(
-            `${mem.user.username} || Source: Anime Neko`,
-            mem.user.displayAvatarURL({ dynamic: true })
-          )
+        const embed = new Discord.EmbedBuilder()
+          .setAuthor({
+           name: `${message.author.username} slapped ${mem.user.username} oof`,
+           iconURL: message.author.displayAvatarURL({ dynamic: true })
+      })
+          .setColor('Random')
+          .setFooter({
+            text: `${mem.user.username} || Source: Anime Neko`,
+            iconURL: mem.user.displayAvatarURL({ dynamic: true })
+      })
           .setImage(image.url);
-        message.channel.send(embed);
+        message.channel.send({embeds: [embed]});
         cooldown.add(message.author.id);
         setTimeout(() => {
           cooldown.delete(message.author.id);

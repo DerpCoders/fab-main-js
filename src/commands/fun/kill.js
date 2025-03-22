@@ -14,10 +14,9 @@ module.exports = {
     let origin;
     let title;
     let footer;
-    var random = getRandomInt(0, 3);
+    var random = getRandomInt(0, 4);
     if (random == 0) {
-      url1 =
-        "https://media1.giphy.com/media/xCzLjOXGjHJoA/giphy.gif?cid=ecf05e47c68287a88684bd70560ce2bb26d35d8024970ab4&rid=giphy.gif";
+      url1 = "https://media1.giphy.com/media/xCzLjOXGjHJoA/giphy.gif?cid=ecf05e47c68287a88684bd70560ce2bb26d35d8024970ab4&rid=giphy.gif";
       origin = "Source: Giphy";
       title = "oh no :^( RIP";
       footer = null;
@@ -33,34 +32,43 @@ module.exports = {
       footer = null;
     } else if (random == 3) {
       url1 = "https://i.kym-cdn.com/photos/images/newsfeed/001/856/131/1af.gif";
+      title = '\;(';
       origin = "Source: Know your meme";
+    } else if (random == 4) {
+      url1 = 'https://tenor.com/view/indian-serials-nonsensical-wtf-wtf-is-going-on-dramatic-gif-13707255';
+      title = 'lmao';
+      origin = 'Source: Tenor';
     }
     if (cmdCD.has(message.author.id)) {
       message.channel
-        .send(`**🚫 Please wait 5 seconds before using that command again**`)
-        .then((sentmsg) => sentmsg.delete({ timeout: 5000 }));
+        .send({content: `**🚫 Please wait 5 seconds before using that command again**`})
+        .then((sentmsg) => {
+          setTimeout(()=>{
+            sentmsg.delete()
+          },5000)
+        });
     } else if (!killUser || message.author.id == killUser.id) {
-      message.channel.send("❌ **Wrong arguments please mention someone.**");
+      message.channel.send({content: "❌ **Wrong arguments please mention someone.**"});
       cmdCD.add(message.author.id);
       setTimeout(() => {
         cmdCD.delete(message.author.id);
       }, 5000);
     } else if (killUser.id === "759762948016177195")
-      return message.channel.send("Hahaha, you can't do that with me.");
+      return message.channel.send({content: "Hahaha, you can't do that with me."});
     else {
-      const aEmbed = new Discord.MessageEmbed()
-        .setColor("RANDOM")
-        .setAuthor(
-          `${message.author.username} killed ${
-            message.guild.member(killUser).displayName
+      const aEmbed = new Discord.EmbedBuilder()
+        .setColor('Random')
+        .setAuthor({
+          name:`${message.author.username} killed ${
+            message.guild.members.cache.get(killUser.id).displayName
           }..... ` + title,
-          message.author.displayAvatarURL({ size: 2048, dynamic: true })
-        )
+          iconURL: message.author.displayAvatarURL({ size: 2048, dynamic: true })
+    })
         .setImage((URL = url1))
-        .setFooter(
-          `${origin}  ||  RIP ${message.guild.member(killUser).displayName}`
-        );
-      message.channel.send(aEmbed);
+        .setFooter({
+          text: `${origin}  ||  RIP ${message.guild.members.cache.get(killUser.id).displayName}`
+    });
+      message.channel.send({embeds: [aEmbed]});
       cmdCD.add(message.author.id);
       setTimeout(() => {
         cmdCD.delete(message.author.id);

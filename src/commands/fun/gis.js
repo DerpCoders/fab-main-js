@@ -1,52 +1,33 @@
-const gis = require("g-i-s");
+const { google } = require('googleapis');
+const customSearch = google.customsearch('v1');
+const Discord = require('discord.js')
 
 module.exports = {
   name: "gis",
-async execute(message, args) {
+  /**
+   * @param {Discord.Message} message 
+   * @param {string[]} args 
+   * @returns 
+   */
+  async execute(message, args) {
     try {
-      let qu = args.slice(0).join(" ");
-      if (!qu){
-        const messageFilter = m => m.author.id === message.author.id;
-        message.reply(
-          "What do you want to search on google image search?\n Type `cancel` to cancel at anytime!"
-        );
-        await message.channel.awaitMessages(messageFilter, {max:1, time: 15000 }).then(async (collected) => {
-          if(!collected) return;
-          if(collected.first().content.toLowerCase() === 'cancel') return message.channel.send('❌ Canceled');
-          qu = collected.first().content;
-  
-      gis(qu, logResults);
-
-      function logResults(error, results) {
-        if (error) return message.channel.send(error);
-        else {
-          if (!results)
-            return message.channel.send(
-              `**❌ 0 results found!** (For query -\`${qu}\`)`
-            );
-          message.channel.send(results[10].url);
-        }
-      }
-    });
-    } else {
-      
-      gis(qu, logResults);
-
-      function logResults(error, results) {
-        if (error) return message.channel.send(error);
-        else {
-          if (!results)
-            return message.channel.send(
-              `**❌ 0 results found!** (For query -\`${qu}\`)`
-            );
-          message.channel.send(results[10].url);
-        }
-      }
-    }
+      let query = args.slice(0).join(" ");
+      if (!query) return message.channel.send({content:':warning: Invalid Arguments\n**Expected:** `gis <query>`'});
+      let msg = await message.channel.send('*Searching...*');
+      const res = await customSearch.cse.list({
+        auth: process.env.googleapi,
+        cx: process.env.cx,
+        searchType: 'image',
+        q: query,
+        num: 10
+      });
+      const randomNumber = Math.floor(Math.random() * 10);
+      if (!res.data.items) return message.channel.send({ content: `**❌ 0 results found!** (For query -\`${query}\`})` });
+      message.channel.send(res.data.items[randomNumber].link) && msg.delete();
     } catch (eror) {
-      return message.channel.send(
-        `❌ **There was an error while running this command** \`\`\`${eror}\`\`\` \n Please contact \`Hey Fab, I'mma kill you#0640\``
-      );
+      return message.channel.send({
+        content: `❌ **There was an error while running this command** \`\`\`${eror}\`\`\` \n Please contact \`papaemeritus.4\``
+      });
     }
-  },
-};
+  }
+}
