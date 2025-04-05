@@ -48,7 +48,7 @@ Your bot's token and prefix will be loaded from config.json.
 ```js
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const { prefix, token } = require('./config.json')
+const { prefix } = require('./config.json')
 
 client.on('ready', () => {
 	console.log('Ready!');
@@ -60,7 +60,7 @@ client.on('messageCreate', message => {
     }
 })
 
-client.login(token);
+client.login(process.env.token);
 ```
 
 ## Join our server || Invite Fab in your server!
