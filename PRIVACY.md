@@ -2,7 +2,7 @@
 
 **Last updated: 10 October 2026**
 
-This Privacy Policy explains what data the Discord bot **Fab** (Discord application ID `759762948016177195`, "the bot", "we") collects, why it is collected, how long it is kept, and how you can have it removed. Fab is an open-source, non-commercial hobby project. Its source code is public at https://github.com/Fab-is-insane/Fab.
+This Privacy Policy explains what data the Discord bot **Fab** (Discord application ID `759762948016177195`, "the bot", "we") collects, why it is collected, how long it is kept, and how you can have it removed. Fab is a non-commercial hobby project. Its source code is published at https://github.com/DerpCoders/fab-main-js.
 
 By adding Fab to a Discord server or using its commands you agree to this policy. Server administrators are responsible for informing their members that Fab is present in the server.
 
@@ -16,11 +16,11 @@ Fab only stores the data needed for the features a server or user has turned on.
 
 ### 2.1 Server configuration (stored per server)
 
-Stored when a server administrator uses a settings command such as `setprefix`, `setlogs`, `set-welcome`, `setlevelup`, `disablecmd`, `createStats` or `daily-news`:
+Stored when a server administrator uses a settings command such as `setprefix`, `setlogs`, `set-welcome`, `setlevelup`, `disablecmd`, `createStats`, `daily-news` or `setstreams`:
 
 - Server ID and server name
 - Custom command prefix
-- IDs of the configured log channel, welcome channel, level-up channel, stats category and daily-news channel, plus the chosen timezone for daily news
+- IDs of the configured log channel, welcome channel, level-up channel, stats category, daily-news channel and stream-announcement channel (plus the optional live role), and the chosen timezone for daily news
 - The list of commands disabled in the server
 - The ID of the administrator who changed a setting (for accountability)
 
@@ -75,7 +75,7 @@ To operate, Fab receives events from Discord. The following is processed in real
 
 - **Message content**, to detect prefix commands, award XP, clear AFK status and relay chatbot messages. Message text is not logged or stored, except as described in sections 2.6 and 2.7.
 - **Member join, leave and update events**, to post welcome and leave messages, log role or nickname changes to a server's configured log channel, re-apply an active mute to a member who rejoins, and update member-count channels.
-- **Presence (online status and current activity)**, shown only when someone runs `userinfo` or `rank`. Presence is never stored.
+- **Presence (online status and current activity)**, used for three things: (a) when a member starts or stops streaming on Twitch or YouTube, Fab posts a "went live" announcement in the channel an administrator configured with `setstreams` and may add or remove a "live" role; (b) counting currently online members for the optional stats channels; (c) showing status and activity when someone runs `userinfo` or `rank`. Presence is processed in real time and never stored. Fab keeps an in-memory note of who is currently live only to avoid duplicate announcements, and discards it when the stream ends or the bot restarts.
 - **Voice state**, to know which voice channel to join for music playback.
 
 Deleted-message logging and role/nickname logging only happen in servers where an administrator has configured a log channel with `setlogs`. Those log messages are posted into that server's own channel, which the server controls.
@@ -125,4 +125,4 @@ This policy may be updated as features change. The "Last updated" date at the to
 
 - Support server: https://discord.gg/ErYkePGWPS
 - Discord: `papaemeritus.4`
-- Source code and issues: https://github.com/Fab-is-insane/Fab
+- Source code and issues: https://github.com/DerpCoders/fab-main-js
